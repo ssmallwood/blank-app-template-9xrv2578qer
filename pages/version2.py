@@ -91,7 +91,8 @@ def main():
 
     # Move state selector to the top of the main display
     states = sorted(df['State'].unique())
-    selected_states = st.multiselect('Select States to Display', states, default=states[:5])
+    default_states = ['CA', 'PA', 'FL', 'MA', 'VA']
+    selected_states = st.multiselect('Select States to Display', states, default=default_states)
 
     st.sidebar.header('Adjust Parameters')
 
@@ -105,7 +106,7 @@ def main():
         'Admission Rate Range (%)', 
         min_value=0, 
         max_value=100, 
-        value=(0, 100)
+        value=(20, 100)
     )
 
     st.sidebar.subheader('Adjust Weights')
